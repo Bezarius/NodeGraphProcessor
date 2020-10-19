@@ -9,6 +9,8 @@ namespace GraphProcessor
 		public ExposedParameter parameter { get; private set; }
 
 		public Toggle     hideInInspector { get; private set; }
+		
+		public Toggle     isInput { get; private set; }
 
 		public ExposedParameterPropertyView(BaseGraphView graphView, ExposedParameter param)
 		{
@@ -26,6 +28,18 @@ namespace GraphProcessor
 			});
 
 			Add(hideInInspector);
+			
+			isInput = new Toggle
+			{
+				text  = "Is Input",
+				value = parameter.settings.isInputParameter
+			};
+			isInput.RegisterValueChangedCallback(e =>
+			{
+				baseGraphView.graph.UpdateExposedParameterVisibility(parameter, e.newValue);
+			});
+
+			Add(isInput);
 		}
 	}
 } 

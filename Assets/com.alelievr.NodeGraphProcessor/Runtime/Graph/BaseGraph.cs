@@ -22,7 +22,8 @@ namespace GraphProcessor
 	[Serializable]
 	public class ExposedParameterSettings
 	{
-		public bool  isHidden;
+		public bool isHidden;
+		public bool isInputParameter;
 	}
 
 	public class GraphChanges

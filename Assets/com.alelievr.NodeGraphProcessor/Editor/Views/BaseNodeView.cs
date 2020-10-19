@@ -773,7 +773,7 @@ namespace GraphProcessor
 			if(port.direction == Direction.Input && inputContainerElement?.Q(port.fieldName) != null)
 				inputContainerElement.Q(port.fieldName).AddToClassList("empty");
 			
-			if (hideElementIfConnected.TryGetValue(port.fieldName, out var elem))
+			if (hideElementIfConnected.TryGetValue(port.fieldName, out var elem) && elem != null)
 				elem.style.display = DisplayStyle.None;
 
 			onPortConnected?.Invoke(port);
